@@ -10,7 +10,7 @@ import okhttp3.Response
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
 
-// This is a simple OkHttp implementation which does not handle network errors -> use Scarlet (https://github.com/Tinder/Scarlet) for that. It is like retrofit and also allow us to have much cleaner code and a separate Api class
+// This is a simple OkHttp implementation which does not resubscribe when encountering network socket errors -> use Scarlet (https://github.com/Tinder/Scarlet) for that. It is like retrofit and also allow us to have much cleaner code and a separate Api class
 class StocksUseCasesImpl(private val gson: Gson, okHttpClient: OkHttpClient) : StocksUseCases,
     WebSocketListener() {
 

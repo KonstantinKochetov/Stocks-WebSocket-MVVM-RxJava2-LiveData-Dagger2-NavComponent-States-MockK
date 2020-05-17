@@ -26,9 +26,8 @@ class StocksViewModel @Inject constructor(
     private val _state = MutableLiveData<Outcome<Stock>>()
     val state: LiveData<Outcome<Stock>> = _state
 
-    fun subscribeToStocks(codes: List<String>) {
-        stocksUseCases.subscribeToStocks(codes = codes)
-            .retry()
+    fun getStocks(codes: List<String>) {
+        stocksUseCases.getStocks(codes = codes)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

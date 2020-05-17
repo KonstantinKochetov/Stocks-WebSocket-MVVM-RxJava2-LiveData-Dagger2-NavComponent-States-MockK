@@ -10,7 +10,7 @@ import okhttp3.Response
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
 
-// This is a simple OkHttp implementation which does not handle network errors -> use Scarlet (https://github.com/Tinder/Scarlet)for that
+// This is a simple OkHttp implementation which does not handle network errors -> use Scarlet (https://github.com/Tinder/Scarlet) for that. It is like retrofit and also allow us to have much cleaner code and a separate Api class
 class StocksUseCasesImpl(private val gson: Gson, okHttpClient: OkHttpClient) : StocksUseCases,
     WebSocketListener() {
 
@@ -30,7 +30,7 @@ class StocksUseCasesImpl(private val gson: Gson, okHttpClient: OkHttpClient) : S
 
     lateinit var publishProcessor: PublishProcessor<Stock>
 
-    override fun subscribeToStocks(codes: List<String>): Flowable<Stock> {
+    override fun getStocks(codes: List<String>): Flowable<Stock> {
         publishProcessor = PublishProcessor.create()
         codes.forEach {
             webSocket.send(SUBSCRIBE.format(it))
@@ -46,6 +46,6 @@ class StocksUseCasesImpl(private val gson: Gson, okHttpClient: OkHttpClient) : S
 
     override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
         super.onFailure(webSocket, t, response)
-        if (::publishProcessor.isInitialized) publishProcessor.onError(t)
+        if (::publishProcessor.isInitialized) publishProcessor.onError(t) // handles no network error on launch because publish processor is not initialized
     }
 }

@@ -1,9 +1,9 @@
 package com.kochetov.websocketstockprices.di.components
 
 import android.content.Context
-import com.kochetov.websocketstockprices.di.modules.StocksModule
 import com.kochetov.websocketstockprices.App
 import com.kochetov.websocketstockprices.di.modules.NetworkModule
+import com.kochetov.websocketstockprices.di.modules.StocksModule
 import com.kochetov.websocketstockprices.di.modules.UseCasesModule
 import dagger.BindsInstance
 import dagger.Component

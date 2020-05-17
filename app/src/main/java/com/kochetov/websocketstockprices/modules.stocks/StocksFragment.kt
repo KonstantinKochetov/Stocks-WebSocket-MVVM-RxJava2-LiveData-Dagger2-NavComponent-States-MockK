@@ -14,8 +14,8 @@ import com.kochetov.websocketstockprices.common.Outcome
 import com.kochetov.websocketstockprices.common.StocksConstants
 import com.kochetov.websocketstockprices.usecases.stocks.model.Stock
 import dagger.android.support.DaggerFragment
-import kotlinx.android.synthetic.main.content_stocks_loading.*
 import javax.inject.Inject
+import kotlinx.android.synthetic.main.content_stocks_loading.*
 
 class StocksFragment : DaggerFragment() {
 
@@ -73,7 +73,6 @@ class StocksFragment : DaggerFragment() {
 
                 is Outcome.Failure -> {
                     bindErrorView(outcome.e)
-
                 }
             }
         })
@@ -97,14 +96,10 @@ class StocksFragment : DaggerFragment() {
             e.localizedMessage,
             Toast.LENGTH_SHORT
         ).show()
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-//        StocksConstants.stocksMap.values.forEach { // TODO unsubscribe
-//            viewModel.unsubscribeFromStock(it.isinCode)
-//        }
         viewModel.disposables.clear()
     }
 }

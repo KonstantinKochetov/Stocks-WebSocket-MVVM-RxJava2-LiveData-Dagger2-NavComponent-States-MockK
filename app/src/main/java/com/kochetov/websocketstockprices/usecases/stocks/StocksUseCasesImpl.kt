@@ -1,6 +1,5 @@
 package com.kochetov.websocketstockprices.usecases.stocks
 
-import android.util.Log
 import com.google.gson.Gson
 import com.kochetov.websocketstockprices.usecases.stocks.model.Stock
 import io.reactivex.Flowable
@@ -27,7 +26,6 @@ class StocksUseCasesImpl(private val gson: Gson, okHttpClient: OkHttpClient) : S
         webSocket = okHttpClient.newWebSocket(request, this)
     }
 
-
     private val publishSubjects: MutableMap<String, PublishProcessor<Stock>> = mutableMapOf()
 
     override fun subscribeToStock(isinCode: String): Flowable<Stock> {
@@ -40,8 +38,6 @@ class StocksUseCasesImpl(private val gson: Gson, okHttpClient: OkHttpClient) : S
     override fun onMessage(webSocket: WebSocket, text: String) {
         val stock = gson.fromJson(text, Stock::class.java)
         stock.isinCode = stock.isinCode.substring(1, stock.isinCode.length - 1)
-        Log.d("kok", "$stock")
         publishSubjects[stock.isinCode]?.onNext(stock)
     }
-
 }

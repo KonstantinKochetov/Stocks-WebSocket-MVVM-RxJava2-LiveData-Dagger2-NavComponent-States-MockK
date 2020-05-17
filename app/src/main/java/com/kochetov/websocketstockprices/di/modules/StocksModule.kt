@@ -1,10 +1,10 @@
 package com.kochetov.websocketstockprices.di.modules
 
 import androidx.lifecycle.ViewModel
-import com.kochetov.websocketstockprices.modules.stocks.StocksFragment
-import com.kochetov.websocketstockprices.modules.stocks.StocksViewModel
 import com.kochetov.websocketstockprices.di.viewmodel.ViewModelBuilder
 import com.kochetov.websocketstockprices.di.viewmodel.ViewModelKey
+import com.kochetov.websocketstockprices.modules.stocks.StocksFragment
+import com.kochetov.websocketstockprices.modules.stocks.StocksViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

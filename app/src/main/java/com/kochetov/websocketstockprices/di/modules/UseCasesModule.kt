@@ -5,8 +5,8 @@ import com.kochetov.websocketstockprices.usecases.stocks.StocksUseCases
 import com.kochetov.websocketstockprices.usecases.stocks.StocksUseCasesImpl
 import dagger.Module
 import dagger.Provides
-import okhttp3.OkHttpClient
 import javax.inject.Singleton
+import okhttp3.OkHttpClient
 
 @Module
 class UseCasesModule {

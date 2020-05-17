@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.kochetov.websocketstockprices.usecases.stocks.model.Stock
 import com.kochetov.websocketstockprices.R
 import com.kochetov.websocketstockprices.common.StocksConstants
-import kotlinx.android.synthetic.main.stock_item.view.*
+import com.kochetov.websocketstockprices.usecases.stocks.model.Stock
 import java.math.BigDecimal
 import java.text.DecimalFormat
+import kotlinx.android.synthetic.main.stock_item.view.*
 
 class StocksAdapter(private var items: List<Stock>) :
     RecyclerView.Adapter<StocksAdapter.ViewHolder>() {

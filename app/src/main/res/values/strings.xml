@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">WebSocketStockPrices</string>
+
+    <string name="s_stocks">Stocks</string>
+    <string name="d_icon_of_the_stock">Icon of the stock</string>
+</resources>

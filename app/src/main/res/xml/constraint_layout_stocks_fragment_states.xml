@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConstraintLayoutStates
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <State
+        android:id="@+id/result"
+        app:constraints="@layout/content_stocks_result"/>
+
+    <State
+        android:id="@+id/loading"
+        app:constraints="@layout/content_stocks_loading"/>
+
+    <State
+        android:id="@+id/error"
+        app:constraints="@layout/content_stocks_error"/>
+
+
+</ConstraintLayoutStates>

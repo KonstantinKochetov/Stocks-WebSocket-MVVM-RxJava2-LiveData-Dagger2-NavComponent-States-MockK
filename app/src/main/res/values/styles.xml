@@ -1,0 +1,48 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="tv_company_name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">#191C1F</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:translationY">-2.62sp</item>
+    </style>
+
+    <style name="iv_isin_code">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">#8B959E</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:translationY">-1.8sp</item>
+    </style>
+
+    <style name="tv_currency_amount">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">#191C1F</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:translationY">-2.28sp</item>
+    </style>
+
+</resources>

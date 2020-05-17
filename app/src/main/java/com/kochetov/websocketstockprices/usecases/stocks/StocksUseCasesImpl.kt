@@ -6,9 +6,11 @@ import io.reactivex.Flowable
 import io.reactivex.processors.PublishProcessor
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.Response
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
 
+// This is a simple OkHttp implementation which does not handle network errors -> use Scarlet (https://github.com/Tinder/Scarlet)for that
 class StocksUseCasesImpl(private val gson: Gson, okHttpClient: OkHttpClient) : StocksUseCases,
     WebSocketListener() {
 
@@ -26,18 +28,24 @@ class StocksUseCasesImpl(private val gson: Gson, okHttpClient: OkHttpClient) : S
         webSocket = okHttpClient.newWebSocket(request, this)
     }
 
-    private val publishSubjects: MutableMap<String, PublishProcessor<Stock>> = mutableMapOf()
+    lateinit var publishProcessor: PublishProcessor<Stock>
 
-    override fun subscribeToStock(isinCode: String): Flowable<Stock> {
-        val publishProcessor = PublishProcessor.create<Stock>()
-        publishSubjects[isinCode] = publishProcessor
-        webSocket.send(SUBSCRIBE.format(isinCode))
+    override fun subscribeToStocks(codes: List<String>): Flowable<Stock> {
+        publishProcessor = PublishProcessor.create()
+        codes.forEach {
+            webSocket.send(SUBSCRIBE.format(it))
+        }
         return publishProcessor.onBackpressureLatest()
     }
 
     override fun onMessage(webSocket: WebSocket, text: String) {
         val stock = gson.fromJson(text, Stock::class.java)
         stock.isinCode = stock.isinCode.substring(1, stock.isinCode.length - 1)
-        publishSubjects[stock.isinCode]?.onNext(stock)
+        publishProcessor.onNext(stock)
+    }
+
+    override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
+        super.onFailure(webSocket, t, response)
+        if (::publishProcessor.isInitialized) publishProcessor.onError(t)
     }
 }

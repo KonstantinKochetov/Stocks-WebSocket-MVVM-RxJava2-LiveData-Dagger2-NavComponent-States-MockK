@@ -15,7 +15,7 @@ class StocksConstants {
             "XS2156107646" to Stock(
                 isinCode = "XS2156107646",
                 price = BigDecimal(0),
-                companyName = "Goldman Sachs International",
+                companyName = "Goldman Sachs",
                 position = 1
             ),
             "XS2178221730" to Stock(
@@ -27,19 +27,19 @@ class StocksConstants {
             "XS2178486952" to Stock(
                 isinCode = "XS2178486952",
                 price = BigDecimal(0),
-                companyName = "Managed and Enhanced Tap Funding ST",
+                companyName = "Tap Funding ST",
                 position = 3
             ),
             "XS2178497728" to Stock(
                 isinCode = "XS2178497728",
                 price = BigDecimal(0),
-                companyName = "Mitsubishi UFJ Trust",
+                companyName = "Mitsubishi UFJ",
                 position = 4
             ),
             "XS2178562307" to Stock(
                 isinCode = "XS2178562307",
                 price = BigDecimal(0),
-                companyName = "Qatar National Bank QPSC[London]",
+                companyName = "Qatar National",
                 position = 5
             ),
             "DE000DK0UD66" to Stock(
@@ -57,13 +57,13 @@ class StocksConstants {
             "XS2112183129" to Stock(
                 isinCode = "XS2112183129",
                 price = BigDecimal(0),
-                companyName = "Credit Suisse International [Milan]",
+                companyName = "Credit Suisse",
                 position = 8
             ),
             "XS2095611153" to Stock(
                 isinCode = "XS2095611153",
                 price = BigDecimal(0),
-                companyName = "BNP Paribas SA [Hong Kong]",
+                companyName = "BNP Paribas SA",
                 position = 9
             )
         )

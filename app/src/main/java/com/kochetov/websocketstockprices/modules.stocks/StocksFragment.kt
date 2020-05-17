@@ -54,9 +54,7 @@ class StocksFragment : DaggerFragment() {
     }
 
     private fun startViewModel() {
-        StocksConstants.stocksMap.values.forEach {
-            viewModel.subscribeToStock(it.isinCode)
-        }
+        viewModel.subscribeToStocks(codes = StocksConstants.stocksMap.keys.toList())
         observeViewModel()
     }
 

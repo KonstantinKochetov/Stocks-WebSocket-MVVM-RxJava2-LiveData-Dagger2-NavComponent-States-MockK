@@ -60,7 +60,7 @@ class StocksAdapter(private var items: List<Stock>) :
         }
 
         private fun setFormattedAmountText(stock: Stock) {
-            itemView.tv_currency_amount.text = stock.price.format()
+            itemView.tv_price_amount.text = stock.price.format()
         }
     }
 

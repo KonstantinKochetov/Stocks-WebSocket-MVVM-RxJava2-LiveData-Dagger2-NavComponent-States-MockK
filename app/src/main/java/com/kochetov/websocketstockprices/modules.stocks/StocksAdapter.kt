@@ -36,9 +36,7 @@ class StocksAdapter(private var items: List<Stock>) :
         if (payloads.isNotEmpty()) {
             when (payloads[0]) {
                 PAYLOAD_UPDATE -> {
-                    if (position != 0) {
-                        holder.updateAmount(items[position])
-                    }
+                    holder.updateAmount(items[position])
                 }
             }
         }
